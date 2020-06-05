@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using WeatherFinderAPI.Models;
 
 namespace WeatherFinderAPI
 {
@@ -25,6 +27,7 @@ namespace WeatherFinderAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<LocationContext>(opt => opt.UseInMemoryDatabase("LocationList"));
             services.AddControllers();
         }
 
