@@ -27,7 +27,8 @@ namespace WeatherFinderAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<LocationContext>(opt => opt.UseInMemoryDatabase("LocationList"));
+            //services.AddDbContext<LocationContext>(opt => opt.UseInMemoryDatabase("LocationList"));
+            services.AddDbContext<LocationContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
         }
 
