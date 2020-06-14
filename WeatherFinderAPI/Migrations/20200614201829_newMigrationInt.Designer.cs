@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeatherFinderAPI.Models;
 
 namespace WeatherFinderAPI.Migrations
 {
     [DbContext(typeof(LocationContext))]
-    partial class LocationContextModelSnapshot : ModelSnapshot
+    [Migration("20200614201829_newMigrationInt")]
+    partial class newMigrationInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,14 +27,14 @@ namespace WeatherFinderAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<float>("Lat")
-                        .HasColumnType("real");
+                    b.Property<double>("Lat")
+                        .HasColumnType("float");
 
                     b.Property<string>("LocName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Lon")
-                        .HasColumnType("real");
+                    b.Property<double>("Lon")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

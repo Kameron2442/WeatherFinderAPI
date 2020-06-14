@@ -28,7 +28,7 @@ namespace WeatherFinderAPI
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<LocationContext>(opt => opt.UseInMemoryDatabase("LocationList"));
-            services.AddDbContext<LocationContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<LocationContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
         }
 

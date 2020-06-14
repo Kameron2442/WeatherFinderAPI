@@ -9,10 +9,10 @@ namespace WeatherFinderAPI.Models
     public class LocationItem
     {
         [Key]
-        public long Id { get; set; } // key in database
+        public int Id { get; set; } // key in database
         public string LocName { get; set; } // name of location
-        public double Lat { get; set; } // latitude
-        public double Lon { get; set; } // longitude
+        public float Lat { get; set; } // latitude
+        public float Lon { get; set; } // longitude
 
     }
 
