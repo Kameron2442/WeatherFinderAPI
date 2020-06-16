@@ -28,6 +28,7 @@ namespace WeatherFinderAPI
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<LocationContext>(opt => opt.UseInMemoryDatabase("LocationList"));
+            services.AddCors();
             services.AddDbContext<LocationContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddRazorPages();
@@ -40,6 +41,12 @@ namespace WeatherFinderAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
 
             app.UseHttpsRedirection();
             app.UseStaticFiles(); 
