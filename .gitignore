@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+WeatherFinderAPI/WeatherFinderAPI.csproj
+WeatherFinderAPI/WeatherFinderAPI.csproj
+WeatherFinderAPI/appsettings.json

@@ -30,6 +30,7 @@ namespace WeatherFinderAPI
             //services.AddDbContext<LocationContext>(opt => opt.UseInMemoryDatabase("LocationList"));
             services.AddDbContext<LocationContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +42,7 @@ namespace WeatherFinderAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles(); 
 
             app.UseRouting();
 
@@ -49,6 +51,8 @@ namespace WeatherFinderAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapRazorPages();
+
             });
         }
     }
