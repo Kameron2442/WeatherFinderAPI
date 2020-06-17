@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WeatherFinderAPI.Models;
 
 namespace WeatherFinderAPI.Controllers
@@ -30,7 +28,7 @@ namespace WeatherFinderAPI.Controllers
 
         // GET: api/LocationItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<LocationItem>> GetLocationItem(long id)
+        public async Task<ActionResult<LocationItem>> GetLocationItem(int id)
         {
             var locationItem = await _context.LocationItems.FindAsync(id);
 
@@ -56,7 +54,7 @@ namespace WeatherFinderAPI.Controllers
 
         // DELETE: api/LocationItems/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<LocationItem>> DeleteLocationItem(long id)
+        public async Task<ActionResult<LocationItem>> DeleteLocationItem(int id)
         {
             var locationItem = await _context.LocationItems.FindAsync(id);
             if (locationItem == null)
